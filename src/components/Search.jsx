@@ -4,7 +4,7 @@ function Search() {
   return (
     <div className="search">
       <div className="searchForm">
-        <input placeholder="find a user" type="text" />
+        <input placeholder="Find a user" type="text" />
       </div>
       <div className="userChat">
         <img
