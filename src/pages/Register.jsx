@@ -9,9 +9,11 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [err, setErr] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +63,9 @@ function Register() {
               email,
               photoURL: downloadURL,
             });
+
+            await setDoc(doc(db, "userChats", res.user.uid), {});
+            navigate("/");
           });
         }
       );
